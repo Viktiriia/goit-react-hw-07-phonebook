@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { ButtonDel, List, Item } from './ContactList.styled';
-import { deleteCantacts } from 'Redux/contactSlice';
+import { deleteContact } from 'Redux/asyncRedux/requestsAPI'; 
 import { useSelector } from 'react-redux';
 
 export const ContactList = () => {
@@ -15,7 +15,7 @@ export const ContactList = () => {
       { filterArray.map(({ name, number, id }) => (
         <Item key={id} id={id}>
           {name}: {number}
-          <ButtonDel onClick={() => dispatch(deleteCantacts(id))}>
+          <ButtonDel onClick={() => dispatch(deleteContact(id))}>
             {' '}
             Delete
           </ButtonDel>
